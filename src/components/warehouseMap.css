@@ -1,0 +1,188 @@
+/* WarehouseMap.css - Dark Industrial Aesthetic */
+
+.ripplesim-map-container {
+  background: #090d16;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 16px;
+  color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Header & Controls */
+.map-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.map-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.live-indicator {
+  width: 8px;
+  height: 8px;
+  background-color: #00f0ff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #00f0ff;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.map-heading {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #f8fafc;
+}
+
+.map-subtitle {
+  font-size: 11px;
+  color: #64748b;
+  letter-spacing: 0.5px;
+}
+
+.reset-btn {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid #334155;
+  color: #38bdf8;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reset-btn:hover {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0369a1;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+}
+
+/* SVG Canvas Container */
+.map-canvas-wrapper {
+  width: 100%;
+  background: #050811;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #1e293b;
+}
+
+.warehouse-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Interactive Aisle Styles */
+.aisle-group {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.aisle-group:hover rect:first-child {
+  stroke: #00f0ff;
+  stroke-width: 1.5;
+}
+
+/* Path Animations */
+.animated-route {
+  stroke-dashoffset: 100;
+  animation: dash 8s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Robot Radar Pulse */
+.robot-pulse {
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  transform-origin: center;
+}
+
+@keyframes pulse-ring {
+  0% {
+    r: 10px;
+    opacity: 0.8;
+  }
+  100% {
+    r: 22px;
+    opacity: 0;
+  }
+}
+
+/* Legend Styling */
+.map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 8px;
+  border-top: 1px solid #1e293b;
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.rack-swatch {
+  background: #0f172a;
+  border: 1px solid #334155;
+}
+
+.robot-swatch {
+  background: #0f172a;
+  border: 2px solid #00f0ff;
+  border-radius: 50%;
+}
+
+.route-swatch {
+  background: #00f0ff;
+  height: 2px;
+}
+
+.blocked-swatch {
+  background: repeating-linear-gradient(
+    45deg,
+    #ef4444,
+    #ef4444 3px,
+    #1e1015 3px,
+    #1e1015 6px
+  );
+  border: 1px solid #ef4444;
+}
+
+.charging-swatch {
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px opacity #10b981;
+}
