@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import './WarehouseMap.css';
+import './warehouseMap.css';
 
 // Types and Interfaces
 export interface RackData {
@@ -46,7 +46,7 @@ export interface RobotData {
   path: Array<{ x: number; y: number }>;
 }
 
-export interface WarehouseMapProps {
+export interface warehouseMapProps {
   initialAisles?: AisleData[];
   initialRacks?: RackData[];
   initialZones?: ZoneData[];
@@ -188,7 +188,7 @@ const DEFAULT_ROBOTS: RobotData[] = [
   },
 ];
 
-export const WarehouseMap: React.FC<WarehouseMapProps> = ({
+export const warehouseMap: React.FC<warehouseMapProps> = ({
   initialAisles = DEFAULT_AISLES,
   initialRacks = DEFAULT_RACKS,
   initialZones = DEFAULT_ZONES,
@@ -662,4 +662,4 @@ export const WarehouseMap: React.FC<WarehouseMapProps> = ({
   );
 };
 
-export default WarehouseMap;
+export default warehouseMap;
